@@ -1,6 +1,10 @@
 # KantinKampus Design Tokens
 
-## Color Tokens
+Dokumentasi design tokens dan komponen visual yang digunakan pada high-fidelity mockup aplikasi KantinKampus.
+
+---
+
+## COLOR TOKENS
 
 ### Primary
 
@@ -22,12 +26,23 @@
 | error-500 | #EF4444 |
 | info-500 | #3B82F6 |
 
+### Neutral Colors
+
+| Token | Value |
+|---|---|
+| neutral-50 | #F9FAFB |
+| neutral-100 | #F3F4F6 |
+| neutral-200 | #E5E7EB |
+| neutral-500 | #6B7280 |
+| neutral-700 | #374151 |
+| neutral-900 | #111827 |
+
 ---
 
-# Typography Tokens
+## TYPOGRAPHY TOKENS
 
-| Style | Size | Weight |
-|---|---|---|
+| Token | Size | Weight |
+|---|---:|---|
 | Heading-1 | 32px | Bold |
 | Heading-2 | 24px | Bold |
 | Heading-3 | 20px | Semi Bold |
@@ -37,10 +52,10 @@
 
 ---
 
-# Spacing Tokens
+## SPACING TOKENS
 
 | Token | Value |
-|---|---|
+|---|---:|
 | space-4 | 4px |
 | space-8 | 8px |
 | space-16 | 16px |
@@ -50,23 +65,66 @@
 
 ---
 
-# Components
+## COMPONENTS
 
-Reusable Components:
+### Button / Primary
 
-1. Button Primary
-2. Button Secondary
-3. Input Default
-4. Card Food
-5. Card Status
-6. Card Payment
+| Property | Value |
+|---|---|
+| Height | 48px |
+| Radius | 12px |
+| Background | #2563EB |
+| Text | #FFFFFF |
+
+### Button / Secondary
+
+| Property | Value |
+|---|---|
+| Height | 48px |
+| Radius | 12px |
+| Background | #EFF6FF |
+| Text | #2563EB |
+
+### Input / Default
+
+| Property | Value |
+|---|---|
+| Height | 48px |
+| Radius | 12px |
+| Border | #D1D5DB |
+| Text | #111827 |
+
+### Card / Food
+
+| Property | Value |
+|---|---|
+| Radius | 16px |
+| Background | #FFFFFF |
+| Shadow | 0 2px 8px |
+
+### Card / Status
+
+| Property | Value |
+|---|---|
+| Radius | 16px |
+| Background | #F3F4F6 |
+| Status | Semantic Color |
+
+### Card / Payment
+
+| Property | Value |
+|---|---|
+| Radius | 16px |
+| Background | #F3F4F6 |
 
 ---
 
-# Design Rules
+## DESIGN PRINCIPLES
 
-- Semua halaman menggunakan token yang sama.
-- Button dibuat menggunakan reusable component.
-- Card menggunakan ukuran radius dan spacing konsisten.
-- Warna tidak menggunakan hex acak.
-- Semua desain mengikuti Design System KantinKampus.
+- Gunakan primary color untuk aksi utama dan elemen interaktif.
+- Gunakan semantic colors untuk menunjukkan status informasi.
+- Gunakan neutral colors untuk teks, background, border, dan elemen pendukung.
+- Gunakan spacing berbasis kelipatan 4px.
+- Gunakan typography tokens secara konsisten pada seluruh mockup.
+- Gunakan component yang sama untuk elemen dengan fungsi yang sama.
+- Pertahankan konsistensi visual antara Login, Home, Detail, Form, dan Sukses.
