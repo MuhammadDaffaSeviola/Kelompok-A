@@ -489,11 +489,18 @@ id = ID menu
     "user_id": 1,
     "canteen_id": 1,
     "status": "pending",
-    "total_amount": 23000,
+    "total_amount": 36000,
     "created_at": "2026-10-04T09:30:00"
   }
 }
 ```
+Perhitungan contoh:
+Harga menu = Rp15.000
+Quantity = 2
+Opsi Pedas = Rp0
+Opsi Telur = Rp3.000
+
+Total = 2 × (Rp15.000 + Rp3.000) = Rp36.000
 
 **Error Response:**
 
@@ -544,7 +551,7 @@ status = Status pesanan
       "user_id": 1,
       "canteen_id": 1,
       "status": "completed",
-      "total_amount": 23000,
+      "total_amount": 36000,
       "created_at": "2026-10-04T09:30:00"
     }
   ]
@@ -597,16 +604,16 @@ id = ID pesanan
     "user_id": 1,
     "canteen_id": 1,
     "status": "completed",
-    "total_amount": 23000,
+    "total_amount": 36000,
     "created_at": "2026-10-04T09:30:00",
     "items": [
       {
         "id": 1,
         "menu_id": 1,
         "menu_name": "Nasi Goreng Spesial",
-        "quantity": 2,
-        "price": 10000,
-        "subtotal": 20000,
+       "quantity": 2,
+      "price": 15000,
+      "subtotal": 30000,
         "options": [
           {
             "menu_option_id": 1,
@@ -676,7 +683,7 @@ id = ID pesanan
     "id": 1,
     "order_id": 1,
     "payment_method": "cash",
-    "amount": 23000,
+    "amount": 36000,
     "status": "pending",
     "paid_at": null
   }
@@ -730,7 +737,7 @@ id = ID pesanan
     "id": 1,
     "order_id": 1,
     "payment_method": "cash",
-    "amount": 23000,
+    "amount": 36000,
     "status": "paid",
     "paid_at": "2026-10-04T09:35:00"
   }
@@ -779,12 +786,13 @@ id = ID pesanan
   "status": "success",
   "message": "Status antrean berhasil diambil",
   "data": {
-    "id": 1,
-    "order_id": 1,
-    "queue_number": 15,
-    "status": "waiting",
-    "estimated_wait_minutes": 20
-  }
+  "id": 1,
+  "order_id": 1,
+  "queue_number": "15",
+  "queue_status": "waiting",
+  "estimated_wait_minutes": 20,
+  "people_ahead": 5
+}
 }
 ```
 
@@ -1113,12 +1121,13 @@ Digunakan ketika terjadi kesalahan pada server.
 
 ## 9. Changelog
 
-### Version 1.0.0
+### Version 1.0.1
 
 **Tanggal:** 4 Oktober 2026
 
 Perubahan:
-
+- Menyesuaikan perhitungan total pesanan dengan harga menu dan pilihan tambahan.
+- Menyesuaikan field status antrean dengan struktur database.
 - Menambahkan API Contract awal untuk aplikasi KantinKampus.
 - Menambahkan autentikasi pengguna.
 - Menambahkan endpoint profil pengguna.
