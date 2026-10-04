@@ -110,13 +110,14 @@ API menggunakan HTTP status code berikut:
   "message": "Login berhasil",
   "data": {
     "access_token": "eyJhbGciOi...",
-    "user": {
-      "id": 1,
-      "nim": "210882001",
-      "name": "Muhammad Daffa",
-      "email": "mahasiswa@kampus.ac.id",
-      "faculty": "Fakultas Ilmu Komputer"
-    }
+   "user": {
+  "id": 1,
+  "nim": "210882001",
+  "name": "Muhammad Daffa",
+  "email": "mahasiswa@kampus.ac.id",
+  "role": "mahasiswa",
+  "faculty": "Fakultas Ilmu Komputer"
+}
   }
 }
 ```
@@ -157,6 +158,7 @@ API menggunakan HTTP status code berikut:
     "nim": "210882001",
     "name": "Muhammad Daffa",
     "email": "mahasiswa@kampus.ac.id",
+    "role": "mahasiswa",
     "faculty": "Fakultas Ilmu Komputer",
     "balance": 48500
   }
