@@ -1138,6 +1138,8 @@ Perubahan:
 - Menambahkan endpoint pilihan menu.
 - Menambahkan endpoint pembuatan dan pengelolaan pesanan.
 - Menambahkan endpoint pembayaran.
+- Menambahkan field `password_hash` dan `role` pada tabel `users`.
+- Menyesuaikan response autentikasi dan profil pengguna dengan field `role`.
 - Menambahkan endpoint status antrean.
 - Menambahkan endpoint pengelolaan menu oleh pengelola kantin.
 - Menambahkan standard JSON response.
