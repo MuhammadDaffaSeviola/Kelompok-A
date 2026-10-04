@@ -2,15 +2,16 @@
 -- KANTINKAMPUS DATABASE
 -- Pertemuan 4 - ERD & API Contract
 -- Kelompok A
+-- Database: MySQL
 -- =========================================================
 
 
--- =========================
+-- =========================================================
 -- 1. USERS
--- =========================
+-- =========================================================
 
 CREATE TABLE users (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nim VARCHAR(20) NOT NULL UNIQUE,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -21,12 +22,12 @@ CREATE TABLE users (
 );
 
 
--- =========================
+-- =========================================================
 -- 2. CANTEENS
--- =========================
+-- =========================================================
 
 CREATE TABLE canteens (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     location VARCHAR(150) NOT NULL,
     building VARCHAR(100),
@@ -38,24 +39,24 @@ CREATE TABLE canteens (
 );
 
 
--- =========================
+-- =========================================================
 -- 3. CATEGORIES
--- =========================
+-- =========================================================
 
 CREATE TABLE categories (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 
--- =========================
+-- =========================================================
 -- 4. MENUS
--- =========================
+-- =========================================================
 
 CREATE TABLE menus (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     canteen_id BIGINT NOT NULL,
     category_id BIGINT NOT NULL,
     name VARCHAR(150) NOT NULL,
@@ -79,12 +80,12 @@ CREATE TABLE menus (
 );
 
 
--- =========================
+-- =========================================================
 -- 5. MENU OPTIONS
--- =========================
+-- =========================================================
 
 CREATE TABLE menu_options (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     menu_id BIGINT NOT NULL,
     option_group VARCHAR(50) NOT NULL,
     option_name VARCHAR(100) NOT NULL,
@@ -100,12 +101,12 @@ CREATE TABLE menu_options (
 );
 
 
--- =========================
+-- =========================================================
 -- 6. ORDERS
--- =========================
+-- =========================================================
 
 CREATE TABLE orders (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
     canteen_id BIGINT NOT NULL,
     order_number VARCHAR(30) NOT NULL UNIQUE,
@@ -130,12 +131,12 @@ CREATE TABLE orders (
 );
 
 
--- =========================
+-- =========================================================
 -- 7. ORDER ITEMS
--- =========================
+-- =========================================================
 
 CREATE TABLE order_items (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     order_id BIGINT NOT NULL,
     menu_id BIGINT NOT NULL,
     quantity INT NOT NULL,
@@ -157,12 +158,12 @@ CREATE TABLE order_items (
 );
 
 
--- =========================
+-- =========================================================
 -- 8. ORDER ITEM OPTIONS
--- =========================
+-- =========================================================
 
 CREATE TABLE order_item_options (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     order_item_id BIGINT NOT NULL,
     menu_option_id BIGINT NOT NULL,
     additional_price DECIMAL(12,2) NOT NULL DEFAULT 0,
@@ -180,17 +181,17 @@ CREATE TABLE order_item_options (
 );
 
 
--- =========================
+-- =========================================================
 -- 9. PAYMENTS
--- =========================
+-- =========================================================
 
 CREATE TABLE payments (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     order_id BIGINT NOT NULL UNIQUE,
     payment_method VARCHAR(30) NOT NULL,
     amount DECIMAL(12,2) NOT NULL,
     status VARCHAR(30) NOT NULL DEFAULT 'pending',
-    paid_at TIMESTAMP,
+    paid_at TIMESTAMP NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -201,12 +202,12 @@ CREATE TABLE payments (
 );
 
 
--- =========================
+-- =========================================================
 -- 10. QUEUE TICKETS
--- =========================
+-- =========================================================
 
 CREATE TABLE queue_tickets (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     order_id BIGINT NOT NULL UNIQUE,
     queue_number VARCHAR(20) NOT NULL UNIQUE,
     queue_status VARCHAR(30) NOT NULL DEFAULT 'waiting',
